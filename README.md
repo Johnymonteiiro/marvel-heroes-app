@@ -9,21 +9,21 @@ card template no Front.
 
 ## TECNOLOGIAS:
 
-# Html
-# Css
-# JavaScript
+ `Html`
+ `Css`
+ `JavaScript`
 
 ## Frameworks:
- # React.js
+ `React.js`
 
 ## Packege:
- # styled-Components
- # react-router-dom
- # react-modal
- # react-paginate
- # react-icons
- # react-spinners
- # axios
+ `styled-Components`
+ `react-router-dom`
+ `react-modal`
+ `react-paginate` 
+ `react-icons`
+ `react-spinners`
+ `axios`
 
 ## INICIALIZAÇÃO DO PROJECTO:
 
