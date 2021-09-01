@@ -1,14 +1,9 @@
-import ClipLoader from "react-spinners/ClipLoader";
 import NavPage from "react-paginate";
 import * as S from "./style";
 import { Footer } from "../Footer";
 
-export const Pagination = ({ changePage, countPage, isLoading }) => {
-  return isLoading ? (
-    <S.Loading>
-      <ClipLoader color={"red"} loading={isLoading} size={50} />
-    </S.Loading>
-  ) : (
+export const Pagination = ({ changePage, countPage}) => {
+  return (
     <>
       <S.Page>
         <NavPage

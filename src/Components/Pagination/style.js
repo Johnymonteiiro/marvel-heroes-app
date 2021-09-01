@@ -48,9 +48,3 @@ export const Page = styled.div`
   }
 `;
 
-export const Loading = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-`;

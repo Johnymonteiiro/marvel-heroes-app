@@ -3,7 +3,10 @@ import { useState, useEffect } from "react";
 import { Cards } from "../../Components/Card";
 import { Header } from "../../Components/Header";
 import { NavBar } from "../../Components/NavBar";
+import { FaFrown } from "react-icons/fa";
+import ClipLoader from "react-spinners/ClipLoader";
 import { Pagination } from "../../Components/Pagination";
+import * as S from "./style";
 import Api from "../../services/api";
 
 export const Main = () => {
@@ -59,18 +62,43 @@ export const Main = () => {
     fetch();
   }, [search]);
 
+  /*=========== FILTER THE POST BY NAME ==============*/
+
+  const filteredHeroes = !!search
+    ? heroes.filter((hero) => {
+        return hero.name.toLowerCase().includes(search.toLowerCase());
+      })
+    : heroes;
+
   /* ========= CALLING THE COMPONENTS ======================= */
 
   return (
     <>
       <Header searchValue={(q) => setSearch(q)} />
       <NavBar />
-      <Cards heroes={heroes} />
-      <Pagination
-        isLoading={isLoading}
-        countPage={countPage}
-        changePage={changePage}
-      />
+      {filteredHeroes.length > 0 && (
+        <>
+          <Cards heroes={filteredHeroes} />
+          <Pagination
+            isLoading={isLoading}
+            countPage={countPage}
+            changePage={changePage}
+          />
+        </>
+      )}
+
+      {isLoading ? (
+        <S.Loading>
+          <ClipLoader color={"red"} loading={isLoading} size={60} />
+        </S.Loading>
+      ) : (
+        filteredHeroes.length === 0 && (
+          <S.NotFound>
+            <S.NotFoundTitle>Hero not found</S.NotFoundTitle>
+            <FaFrown size={30} color={"#ec1d24"} />
+          </S.NotFound>
+        )
+      )}
     </>
   );
 };
