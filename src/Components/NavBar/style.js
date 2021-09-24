@@ -59,7 +59,7 @@ export const Nav = styled.nav`
     }
   }
 
-  @media only screen and (max-width: 600px) {
+  @media only screen and (max-width:700px) {
     .nav-link {
       display: none;
     }
@@ -68,9 +68,9 @@ export const Nav = styled.nav`
       color: #202020;
     }
     .nav-link-mobile {
-      position: absolute;
+      position:fixed;
       left: 0;
-      top: 185px;
+      top:8.3rem;
       padding: 5px 0;
       width: 100%;
       height: 6%;
@@ -90,6 +90,12 @@ export const Nav = styled.nav`
       color: white;
       background: none;
       outline: none;
+    }
+  }
+
+  @media only screen and (max-width:600px) {
+    .nav-link-mobile {
+      top:11.5rem;
     }
   }
 `;
